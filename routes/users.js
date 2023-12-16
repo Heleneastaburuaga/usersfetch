@@ -9,7 +9,8 @@ let users = [
 var router=express.Router();
 
 const mongojs=require('mongojs')
-const db = mongojs('bezeroakdb', ['bezeroak'])
+const bezeroakdb = mongojs('localhost:27017/bezeroakdb');
+const db = mongojs(bezeroakdb, ['bezeroak'])
 
 let users=[]
 db.bezeroak.find(function(err,userdocs){
